@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PurchaseController;
+use App\Http\Controllers\SupplierController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,8 @@ Route::middleware(['auth', 'Useraccess:user'])->group(function () {
 Route::middleware(['auth', 'Useraccess:admin'])->group(function () {
 
     Route::get('/admin/home', [HomeController::class, 'admin'])->name('admin.home');
-    Route::get('supplier/index', [PurchaseController::class, 'index'])->name('admin.supplier.index');
+    Route::get('supplier/index', [SupplierController::class, 'index'])->name('admin.supplier.index');
+    Route::get('supplier/create', [SupplierController::class, 'create'])->name('admin.supplier.create');
 });
 
 //Admin Routes List

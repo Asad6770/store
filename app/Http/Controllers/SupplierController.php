@@ -12,7 +12,7 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.supplier.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class SupplierController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.supplier.create');
     }
 
     /**
