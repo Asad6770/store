@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('product_types');
             $table->unsignedBigInteger('purchase_id');
             $table->foreign('purchase_id')->references('id')->on('purchases');
+            $table->foreign('project_id')->references('id')->on('projectss');
+            $table->string('serial_number');
             $table->string('serial_number');
             $table->string('location');
             $table->string('remarks')->nullable();

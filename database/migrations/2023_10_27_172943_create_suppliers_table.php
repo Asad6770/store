@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('supplier_name');
             $table->string('supplier_number');
-            $table->integer('supplier_cnic');
+            $table->string('supplier_cnic');
             $table->string('supplier_address');
             $table->string('supplier_email');
             $table->unsignedBigInteger('create_by');

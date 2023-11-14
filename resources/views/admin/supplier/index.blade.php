@@ -7,10 +7,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <button href="{{ route('admin.supplier.create') }}" type="button"
-                                class="btn btn-success modal-load" data-toggle="modal" data-target="#exampleModal">
+                            <button href="{{ route('create') }}" type="button" class="btn btn-success modal-load"
+                                data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus"></i>
-                                Add Supplier
+                                Add Contactor
                             </button>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -23,23 +23,37 @@
                                             <th>CNIC</th>
                                             <th>Address</th>
                                             <th>E-mail</th>
-                                            <th>Action</th>
+                                            <th  scope="col" colspan="2">Action</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Bilal</td>
-                                            <td>03457765789</td>
-                                            <td>3440467563074</td>
-                                            <td>Mardan</td>
-                                            <td>bilal@gmail.com</td>
-                                            <td>
-                                                <button class="btn btn-primary btn-sm">Edit</button>
-                                                <button class="btn btn-danger btn-sm">Delete</button>
-                                                <button class="btn btn-secondary btn-sm">View</button>
-                                            </td>
-                                        </tr>
+                                    @if (count($Suppliers) > 0)
+                                        <tbody>
+                                            @foreach ($Suppliers as $Supplier)
+                                                <tr>
+                                                    <th scope="row">{{ $loop->index + 1 }}</th>
+                                                    <td>{{ $Supplier->supplier_name }}</td>
+                                                    <td>{{ $Supplier->supplier_number }}</td>
+                                                    <td>{{ $Supplier->supplier_cnic }}</td>
+                                                    <td>{{ $Supplier->supplier_email }}</td>
+                                                    <td>{{ $Supplier->supplier_address }}</td>
+                                                    <td>
+                                                        <a href=""
+                                                            class="text-white btn-info btn btn-sm modal_load" data-bs-toggle="modal"
+                                                            data-bs-target="#crudModal"><i class="nav-icon fas fa-edit"></i></a>
+                                                    </td>
+                                                    <td>
+                                                        <a href=""
+                                                            class="text-white btn-danger btn btn-sm delete"><i class="nav-icon fas fa-trash"></i></a>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+
+                                            <tr>
+                                            @else
+                                                <td class="text-danger text-center fs-5 fw-bold" colspan="8">
+                                                    No Record Found
+                                                </td>
+                                    @endif
                                     </tbody>
                                 </table>
                             </div>

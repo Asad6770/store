@@ -93,7 +93,7 @@
                         <a href="#" class="dropdown-item">
                             <!-- Message Start -->
                             <div class="media">
-                                <img src="{{asset('dist/img/user1-128x128.jpg')}}" alt="User Avatar"
+                                <img src="{{ asset('dist/img/user1-128x128.jpg') }}" alt="User Avatar"
                                     class="img-size-50 mr-3 img-circle">
                                 <div class="media-body">
                                     <h3 class="dropdown-item-title">
@@ -142,10 +142,11 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown">
+
                     <a class="dropdown-item" href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
+                        <i class="nav-icon fas fa-sign-out-alt"></i>{{ __('Logout') }}
                     </a>
                 </li>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
@@ -185,7 +186,8 @@
                     <!-- Add icons to the links using the .nav-icon class
                           with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="{{route('admin.home')}}" class="nav-link {{ 'admin/home' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('admin.home') }}"
+                            class="nav-link {{ 'admin/home' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Dashboard
@@ -193,15 +195,17 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.supplier.index')}}" class="nav-link {{ 'supplier/index' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('supplier') }}"
+                            class="nav-link {{ 'supplier' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Contactor
+                                Contractor
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.supplier.index')}}" class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('admin.purchase.index') }}"
+                            class="nav-link {{ 'purchase/index' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Purchase
@@ -209,7 +213,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.supplier.index')}}" class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('admin.purchase-items.index') }}"
+                            class="nav-link {{ 'purchase-items/index' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Purchase Items Details
@@ -217,7 +222,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.supplier.index')}}" class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('supplier') }}"
+                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Project
@@ -225,7 +231,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.supplier.index')}}" class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('supplier') }}"
+                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Product Type
@@ -233,7 +240,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.supplier.index')}}" class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('supplier') }}"
+                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Product Consumption
@@ -241,7 +249,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{route('admin.supplier.index')}}" class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('supplier') }}"
+                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Consumption Detail
@@ -298,22 +307,23 @@
 
 
     <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          ...
-        </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    ...
+                </div>
 
-      </div>
+            </div>
+        </div>
     </div>
-  </div>
 
 
 
@@ -353,6 +363,7 @@
     <script src="{{ asset('dist/js/script.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     {{-- <script src="{{ asset('dist/js/pages/dashboard.js') }}"></script> --}}
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 </html>
