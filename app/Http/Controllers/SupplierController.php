@@ -14,8 +14,8 @@ class SupplierController extends Controller
      */
     public function index()
     {
-        $Suppliers = Supplier::paginate(10);
-        return view('admin.supplier.index',compact('Suppliers'));
+        $Supplier = Supplier::paginate(10);
+        return view('admin.supplier.index', ['Suppliers'=> $Supplier]);
     }
 
     /**
@@ -71,24 +71,55 @@ class SupplierController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Supplier $supplier)
+    public function edit($id)
     {
-        //
+        $supplier = Supplier::find($id);
+        return view('admin.supplier.edit', ['supplier'=>$supplier]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Supplier $supplier)
+    public function update(Request $request, $id)
     {
-        //
+        $supplier = Supplier::find($id);
+        $validator = Validator::make($request->all(), [
+            'supplier_name' => 'required',
+            'supplier_number' => 'required',
+            'supplier_cnic' => 'required',
+            'supplier_address' => 'required',
+            'supplier_email' => 'required',
+
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 400,
+                'error' => $validator->errors(),
+            ]);
+        } else {
+            $supplier->supplier_name = $request->supplier_name;
+            $supplier->supplier_number = $request->supplier_number;
+            $supplier->supplier_cnic = $request->supplier_cnic;
+            $supplier->supplier_address = $request->supplier_address;
+            $supplier->supplier_email = $request->supplier_email;
+            $supplier->create_by = Auth::id();
+            $supplier->save();
+            return response()->json([
+                'status' => 200,
+                'success' => 'Contractor Record Updated successfully!',
+            ]);
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Supplier $supplier)
+    public function destroy($id)
     {
-        //
+        Supplier::destroy($id);
+        return response()->json([
+            'status'=> 300,
+            'success'=> 'Contractor Record Deleted successfully!',
+        ]);
     }
 }

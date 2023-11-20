@@ -37,10 +37,17 @@ Route::middleware(['auth', 'Useraccess:admin'])->group(function () {
     Route::get('supplier', [SupplierController::class, 'index'])->name('supplier');
     Route::get('supplier/create', [SupplierController::class, 'create'])->name('create');
     Route::post('supplier/create', [SupplierController::class, 'store'])->name('create');
-
+    Route::get('supplier/edit/{id}', [SupplierController::class, 'edit'])->name('edit');
+    Route::put('supplier/update/{id}', [SupplierController::class, 'update'])->name('update');
+    Route::post('supplier/delete/{id}', [SupplierController::class, 'destroy'])->name('delete');
     //purchase Routes List
-    Route::get('purchase/index', [PurchaseController::class, 'index'])->name('admin.purchase.index');
-    Route::get('purchase/create', [PurchaseController::class, 'create'])->name('admin.purchase.create');
+    Route::get('purchase', [PurchaseController::class, 'index'])->name('index');
+    Route::get('purchase/create', [PurchaseController::class, 'create'])->name('purchase.create');
+    Route::post('purchase/create', [PurchaseController::class, 'store'])->name('purchase.store');
+    Route::get('purchase/edit/{id}', [PurchaseController::class, 'edit'])->name('purchase.edit');
+    Route::put('purchase/update/{id}', [PurchaseController::class, 'update'])->name('purchase.update');
+    Route::post('purchase/delete/{id}', [PurchaseController::class, 'destroy'])->name('purchase.delete');
+    Route::post('purchase/show/{id}', [PurchaseController::class, 'show'])->name('purchase.show');
 
     //purchase Routes List
     Route::get('purchase-items/index', [PurchaseItemDetailController::class, 'index'])->name('admin.purchase-items.index');

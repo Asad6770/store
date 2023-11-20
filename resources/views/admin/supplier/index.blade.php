@@ -23,27 +23,29 @@
                                             <th>CNIC</th>
                                             <th>Address</th>
                                             <th>E-mail</th>
-                                            <th  scope="col" colspan="2">Action</th>
+                                            <th scope="col" colspan="2">Action</th>
                                         </tr>
                                     </thead>
                                     @if (count($Suppliers) > 0)
                                         <tbody>
-                                            @foreach ($Suppliers as $Supplier)
+                                            @foreach ($Suppliers as $supplier)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td>{{ $Supplier->supplier_name }}</td>
-                                                    <td>{{ $Supplier->supplier_number }}</td>
-                                                    <td>{{ $Supplier->supplier_cnic }}</td>
-                                                    <td>{{ $Supplier->supplier_email }}</td>
-                                                    <td>{{ $Supplier->supplier_address }}</td>
+                                                    <td>{{ $supplier->supplier_name }}</td>
+                                                    <td>{{ $supplier->supplier_number }}</td>
+                                                    <td>{{ $supplier->supplier_cnic }}</td>
+                                                    <td>{{ $supplier->supplier_email }}</td>
+                                                    <td>{{ $supplier->supplier_address }}</td>
                                                     <td>
-                                                        <a href=""
-                                                            class="text-white btn-info btn btn-sm modal_load" data-bs-toggle="modal"
-                                                            data-bs-target="#crudModal"><i class="nav-icon fas fa-edit"></i></a>
+                                                        <a href="{{ route('edit', $supplier->id) }}"
+                                                            class="text-white btn-info btn btn-sm modal-load"
+                                                            data-toggle="modal" data-target="#exampleModal"><i
+                                                                class="nav-icon fas fa-edit"></i></a>
                                                     </td>
                                                     <td>
-                                                        <a href=""
-                                                            class="text-white btn-danger btn btn-sm delete"><i class="nav-icon fas fa-trash"></i></a>
+                                                        <a href="{{ route('delete', $supplier->id) }}"
+                                                            class="text-white btn-danger btn btn-sm delete"><i
+                                                                class="nav-icon fas fa-trash"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
@@ -59,7 +61,9 @@
                             </div>
                             <!-- /.card-body -->
                         </div>
-                        <!-- /.card -->
+                        <div class="pagination fw-bold justify-content-center">
+                            {{ $Suppliers->links() }}
+                        </div>
                     </div>
                     <!-- /.col -->
                 </div>

@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     $(".modal-load").on("click", function (e) {
         console.log('click');
@@ -47,13 +48,56 @@ $(document).ready(function () {
                         icon: 'success',
                         title: data.success,
                         showConfirmButton: true,
-                    })
-                    setTimeout(function () {
-                        window.location.reload();
-                    }, 500);
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            window.location.reload();
+                        }
+                    });
                 }
             }
         });
     });
 
+    $(document).on('click', '.delete', function (e) {
+        e.preventDefault();
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        var id = $(this).data('id');
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                $.ajax({
+                    type: "POST",
+                    url: $(this).attr('href'),
+                    data: { id: id },
+                    success: function (data) {
+                        if (data.status == 300) {
+                            Swal.fire(
+                                'Deleted!',
+                                data.success,
+                                'success'
+                            ).then((result) => {
+                                if (result.isConfirmed) {
+                                    window.location.reload();
+                                }
+                            });
+                        }
+                        else {
+                            alert('Somthing went worng!');
+                        }
+                    }
+                });
+            }
+        })
+    });
 });

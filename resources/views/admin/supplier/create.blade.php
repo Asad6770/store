@@ -1,30 +1,30 @@
 <form class="row justify-content-center g-3 submitData" method="POST" action="{{ route('create') }}" enctype="multipart/form-data">
 @csrf
     <div class="col-md-6  col-lg-6">
-        <label for="supplier_name" class="form-label fw-bold">Full Name</label>
-        <input type="text" class="form-control" id="supplier_name" name="supplier_name">
+        <label for="supplier_name" class="form-label fw-bold" >Full Name</label>
+        <input type="text" class="form-control" id="supplier_name" name="supplier_name" Placeholder="Asad Mahmood">
         <span class="text-danger supplier_name_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-6 col-lg-6">
-        <label for="supplier_number" class="form-label fw-bold">Phone Number</label>
-        <input type="text" class="form-control" id="supplier_number" name="supplier_number">
+        <label for="supplier_number" class="form-label fw-bold" >Phone Number</label>
+        <input type="text" class="form-control" id="supplier_number" name="supplier_number" placeholder="0300-0000100">
         <span class="text-danger supplier_number_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-6 col-lg-6">
-        <label for="supplier_cnic" class="form-label fw-bold">CNIC</label>
-        <input type="text" class="form-control" id="supplier_cnic" name="supplier_cnic">
+        <label for="supplier_cnic" class="form-label fw-bold" >CNIC</label>
+        <input type="text" class="form-control" id="supplier_cnic" name="supplier_cnic" placeholder="31101-1111100-1">
         <span class="text-danger supplier_cnic_error error text-bold" style="font-size: 13px;"></span>
     </div>
 
     <div class="col-md-6 col-lg-6">
-        <label for="supplier_email" class="form-label fw-bold">E-mail</label>
-        <input type="text" class="form-control" id="supplier_email" name="supplier_email">
+        <label for="supplier_email" class="form-label fw-bold" >E-mail</label>
+        <input type="text" class="form-control" id="supplier_email" name="supplier_email" placeholder="admin@gmail.com">
         <span class="text-danger supplier_email_error error text-bold" style="font-size: 13px;"></span>
     </div>
 
     <div class="col-md-12 col-lg-12">
         <label for="supplier_address" class="form-label fw-bold">Address</label>
-        <input type="text" class="form-control" id="supplier_address" name="supplier_address">
+        <input type="text" class="form-control" id="supplier_address" name="supplier_address" placeholder="Write Home Address...">
         <span class="text-danger supplier_address_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <br>

@@ -1,15 +1,17 @@
-<form class="row justify-content-center g-3 submitData" method="POST" action="{{ route('purchase.create') }}"
-    enctype="multipart/form-data">
+<form class="row justify-content-center g-3 submitData" method="POST"
+    action="{{ route('purchase.update', $purchase->id) }}" enctype="multipart/form-data">
     @csrf
+    @method('PUT')
     <div class="col-md-6  col-lg-6">
         <label for="product_name" class="form-label fw-bold">Product Name</label>
-        <input type="text" class="form-control" id="product_name" name="product_name" Placeholder="Asad Mahmood">
+        <input type="text" class="form-control" id="product_name" name="product_name"
+            value="{{ $purchase->product_name }}">
         <span class="text-danger product_name_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-6 col-lg-6">
         <label for="product_part_number" class="form-label fw-bold">Part Number</label>
         <input type="text" class="form-control" id="product_part_number" name="product_part_number"
-            placeholder="0300-0000100">
+            value="{{ $purchase->product_part_number }}">
         <span class="text-danger product_part_number_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-6 col-lg-6 search_select_box form-group">
@@ -17,14 +19,16 @@
         <select class="form-control" name="supplier_id" id="supplier_id" data-live-search="true">
             <option>Select</option>
             @foreach ($suppliers as $supplier)
-                <option value="{{ $supplier->id }}">{{ $supplier->supplier_name }}</option>
+                <option value="{{ $supplier->id }} " {{ $supplier->id == $purchase->supplier_id ? 'selected' : '' }}>
+                    {{ $supplier->supplier_name }}</option>
             @endforeach
         </select>
         <span class="text-danger supplier_id_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-6 col-lg-6">
         <label for="supplier_email" class="form-label fw-bold">Photo</label>
-        <input name="photo" type="file" class="form-control-file form-control-sm" id="photo">
+        <input name="photo" type="file" class="form-control-file form-control-sm" id="photo"
+            value="{{ $purchase->photo }}">
         <span class="text-danger photo_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <br>
