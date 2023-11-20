@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
-
+@section('title')
+Purchase
+@endsection
 @section('content')
     <section class="content">
         <div class="container-fluid">

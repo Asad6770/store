@@ -1,5 +1,7 @@
 @extends('admin.layouts.app')
-
+@section('title')
+Contactor
+@endsection
 @section('content')
     <section class="content">
         <div class="container-fluid">
@@ -21,8 +23,8 @@
                                             <th>Full Name</th>
                                             <th>Mobile Number</th>
                                             <th>CNIC</th>
-                                            <th>Address</th>
                                             <th>E-mail</th>
+                                            <th>Address</th>
                                             <th scope="col" colspan="2">Action</th>
                                         </tr>
                                     </thead>

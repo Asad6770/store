@@ -32,7 +32,7 @@ Route::middleware(['auth', 'Useraccess:user'])->group(function () {
 //Admin Routes List
 Route::middleware(['auth', 'Useraccess:admin'])->group(function () {
     //dashboard Routes List
-    Route::get('admin/home', [HomeController::class, 'admin'])->name('admin.home');
+    Route::get('dashboard', [HomeController::class, 'admin'])->name('dashboard');
     //supplier Routes List
     Route::get('supplier', [SupplierController::class, 'index'])->name('supplier');
     Route::get('supplier/create', [SupplierController::class, 'create'])->name('create');
