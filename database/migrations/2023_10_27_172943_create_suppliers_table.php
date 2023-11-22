@@ -13,11 +13,11 @@ return new class extends Migration
     {
         Schema::create('suppliers', function (Blueprint $table) {
             $table->id();
-            $table->string('supplier_name');
-            $table->string('supplier_number');
-            $table->string('supplier_cnic');
-            $table->string('supplier_address');
-            $table->string('supplier_email');
+            $table->string('name');
+            $table->string('number');
+            $table->string('cnic');
+            $table->string('address');
+            $table->string('email');
             $table->unsignedBigInteger('create_by');
             $table->foreign('create_by')->references('id')->on('users');
             $table->timestamps();

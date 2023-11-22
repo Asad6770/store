@@ -3,29 +3,29 @@
     @csrf
     @method('PUT')
     <div class="col-md-6  col-lg-6">
-        <label for="product_name" class="form-label fw-bold">Product Name</label>
-        <input type="text" class="form-control" id="product_name" name="product_name"
-            value="{{ $purchase->product_name }}">
-        <span class="text-danger product_name_error error text-bold" style="font-size: 13px;"></span>
+        <label for="name" class="form-label fw-bold">Product Name</label>
+        <input type="text" class="form-control" id="name" name="name"
+            value="{{ $purchase->name }}">
+        <span class="text-danger name_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-6 col-lg-6">
-        <label for="product_part_number" class="form-label fw-bold">Part Number</label>
-        <input type="text" class="form-control" id="product_part_number" name="product_part_number"
-            value="{{ $purchase->product_part_number }}">
-        <span class="text-danger product_part_number_error error text-bold" style="font-size: 13px;"></span>
+        <label for="part_number" class="form-label fw-bold">Part Number</label>
+        <input type="text" class="form-control" id="part_number" name="part_number"
+            value="{{ $purchase->part_number }}">
+        <span class="text-danger part_number_error error text-bold" style="font-size: 13px;"></span>
     </div>
-    <div class="col-md-6 col-lg-6 search_select_box form-group">
+    <div class="col-md-12 col-lg-12 search_select_box form-group">
         <label for="supplier_id" class="form-label fw-bold">Supplier Name</label>
         <select class="form-control" name="supplier_id" id="supplier_id" data-live-search="true">
             <option>Select</option>
             @foreach ($suppliers as $supplier)
                 <option value="{{ $supplier->id }} " {{ $supplier->id == $purchase->supplier_id ? 'selected' : '' }}>
-                    {{ $supplier->supplier_name }}</option>
+                    {{ $supplier->name }}</option>
             @endforeach
         </select>
         <span class="text-danger supplier_id_error error text-bold" style="font-size: 13px;"></span>
     </div>
-    <div class="col-md-6 col-lg-6">
+    <div class="col-md-12 col-lg-12">
         <label for="supplier_email" class="form-label fw-bold">Photo</label>
         <input name="photo" type="file" class="form-control-file form-control-sm" id="photo"
             value="{{ $purchase->photo }}">

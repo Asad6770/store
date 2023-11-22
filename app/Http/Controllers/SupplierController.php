@@ -32,11 +32,11 @@ class SupplierController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'supplier_name' => 'required',
-            'supplier_number' => 'required',
-            'supplier_cnic' => 'required',
-            'supplier_address' => 'required',
-            'supplier_email' => 'required',
+            'name' => 'required',
+            'number' => 'required',
+            'cnic' => 'required',
+            'address' => 'required',
+            'email' => 'required',
 
         ]);
         if ($validator->fails()) {
@@ -46,11 +46,11 @@ class SupplierController extends Controller
             ]);
         } else {
             $Supplier = new supplier();
-            $Supplier->supplier_name = $request->supplier_name;
-            $Supplier->supplier_number = $request->supplier_number;
-            $Supplier->supplier_cnic = $request->supplier_cnic;
-            $Supplier->supplier_address = $request->supplier_address;
-            $Supplier->supplier_email = $request->supplier_email;
+            $Supplier->name = $request->name;
+            $Supplier->number = $request->number;
+            $Supplier->cnic = $request->cnic;
+            $Supplier->ddress = $request->address;
+            $Supplier->email = $request->email;
             $Supplier->create_by = Auth::id();
             $Supplier->save();
             return response()->json([
@@ -84,11 +84,11 @@ class SupplierController extends Controller
     {
         $supplier = Supplier::find($id);
         $validator = Validator::make($request->all(), [
-            'supplier_name' => 'required',
-            'supplier_number' => 'required',
-            'supplier_cnic' => 'required',
-            'supplier_address' => 'required',
-            'supplier_email' => 'required',
+            'name' => 'required',
+            'number' => 'required',
+            'cnic' => 'required',
+            'address' => 'required',
+            'email' => 'required',
 
         ]);
         if ($validator->fails()) {
@@ -97,11 +97,11 @@ class SupplierController extends Controller
                 'error' => $validator->errors(),
             ]);
         } else {
-            $supplier->supplier_name = $request->supplier_name;
-            $supplier->supplier_number = $request->supplier_number;
-            $supplier->supplier_cnic = $request->supplier_cnic;
-            $supplier->supplier_address = $request->supplier_address;
-            $supplier->supplier_email = $request->supplier_email;
+            $supplier->name = $request->name;
+            $supplier->number = $request->number;
+            $supplier->nic = $request->cnic;
+            $supplier->address = $request->address;
+            $supplier->email = $request->email;
             $supplier->create_by = Auth::id();
             $supplier->save();
             return response()->json([

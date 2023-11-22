@@ -204,7 +204,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('index') }}"
+                        <a href="{{ route('purchase') }}"
                             class="nav-link {{ 'purchase' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
@@ -213,17 +213,26 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('admin.purchase-items.index') }}"
-                            class="nav-link {{ 'purchase-items/index' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('purchase-item') }}"
+                            class="nav-link {{ 'purchase-item' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
-                                Purchase Items Details
+                                Purchase Item Details
                             </p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('supplier') }}"
-                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('project-category') }}"
+                            class="nav-link {{ 'project-category' == request()->path() ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Project Category
+                            </p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('project') }}"
+                            class="nav-link {{ 'project' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Project
@@ -231,8 +240,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('supplier') }}"
-                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('product') }}"
+                            class="nav-link {{ 'product' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Product Type

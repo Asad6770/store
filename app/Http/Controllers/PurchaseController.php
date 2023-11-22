@@ -17,7 +17,7 @@ class PurchaseController extends Controller
     {
         $Purchase = DB::table('purchases')
             ->join('suppliers', 'purchases.supplier_id', '=', 'suppliers.id')
-            ->select('purchases.*', 'suppliers.supplier_name')
+            ->select('purchases.*', 'suppliers.name')
             ->paginate(10);
         return view('admin.purchase.index', ['Purchases'=> $Purchase]);
     }
@@ -37,8 +37,8 @@ class PurchaseController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            'product_name' => 'required',
-            'product_part_number' => 'required',
+            'name' => 'required',
+            'part_number' => 'required',
             'supplier_id' => 'required',
             'photo' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
@@ -49,8 +49,8 @@ class PurchaseController extends Controller
             ]);
         } else {
             $purchase = new Purchase();
-            $purchase->product_name = $request->product_name;
-            $purchase->product_part_number = $request->product_part_number;
+            $purchase->name = $request->name;
+            $purchase->part_number = $request->part_number;
             $purchase->supplier_id = $request->supplier_id;
             $purchase->photo = $request->photo;
             if ($request->hasfile('photo')){
@@ -93,8 +93,8 @@ class PurchaseController extends Controller
     {
         $purchase = Purchase::find($id);
         $validator = Validator::make($request->all(), [
-            'product_name' => 'required',
-            'product_part_number' => 'required',
+            'name' => 'required',
+            'part_number' => 'required',
             'supplier_id' => 'required',
             'photo' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
         ]);
@@ -104,8 +104,8 @@ class PurchaseController extends Controller
                 'error' => $validator->errors(),
             ]);
         } else {
-            $purchase->product_name = $request->product_name;
-            $purchase->product_part_number = $request->product_part_number;
+            $purchase->name = $request->name;
+            $purchase->part_number = $request->part_number;
             $purchase->supplier_id = $request->supplier_id;
             if ($request->hasfile('photo')){
                 $path = 'files/';

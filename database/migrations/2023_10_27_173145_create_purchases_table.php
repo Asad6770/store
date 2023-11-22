@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('purchases', function (Blueprint $table) {
             $table->id();
-            $table->string('product_part_number');
-            $table->string('product_name');
+            $table->string('part_number');
+            $table->string('name');
             $table->string('photo')->nullable();
             $table->unsignedBigInteger('supplier_id');
             $table->foreign('supplier_id')->references('id')->on('suppliers');

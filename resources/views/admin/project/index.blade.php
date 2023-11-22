@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-Contactor
+    Project
 @endsection
 @section('content')
     <section class="content">
@@ -9,10 +9,10 @@ Contactor
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <button href="{{ route('create') }}" type="button" class="btn btn-success modal-load"
-                                data-toggle="modal" data-target="#exampleModal">
+                            <button href="{{ route('project.create') }}" type="button"
+                                class="btn btn-success modal-load" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus"></i>
-                                Add Contactor
+                                Add Purchase
                             </button>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -20,57 +20,50 @@ Contactor
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Full Name</th>
-                                            <th>Mobile Number</th>
-                                            <th>CNIC</th>
-                                            <th>E-mail</th>
-                                            <th>Address</th>
-                                            <th scope="col" colspan="2">Action</th>
+                                            <th>Project Name</th>
+                                            <th>Category Name</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @if (count($Suppliers) > 0)
+                                     @if (count($Projects) > 0)
                                         <tbody>
-                                            @foreach ($Suppliers as $supplier)
+                                            @foreach ($Projects as $Project)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td>{{ $supplier->name }}</td>
-                                                    <td>{{ $supplier->number }}</td>
-                                                    <td>{{ $supplier->cnic }}</td>
-                                                    <td>{{ $supplier->email }}</td>
-                                                    <td>{{ $supplier->address }}</td>
+                                                    <td>{{ $Project->name }}</td>
+                                                    <td>{{ $Project->category_id }}</td>
                                                     <td>
-                                                        <a href="{{ route('edit', $supplier->id) }}"
+                                                        <a href="{{ route('project.edit', $Project->id) }}"
                                                             class="text-white btn-info btn btn-sm modal-load"
                                                             data-toggle="modal" data-target="#exampleModal"><i
                                                                 class="nav-icon fas fa-edit"></i></a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{ route('delete', $supplier->id) }}"
+
+                                                        <a href="{{ route('project.delete', $Project->id) }}"
                                                             class="text-white btn-danger btn btn-sm delete"><i
                                                                 class="nav-icon fas fa-trash"></i></a>
+
+                                                        <a href="{{ route('purchase.show', $Project->id) }}"
+                                                            class="text-white btn-success btn btn-sm"><i
+                                                                class="nav-icon fas fa-eye"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach
-
                                             <tr>
                                             @else
                                                 <td class="text-danger text-center fs-5 fw-bold" colspan="8">
                                                     No Record Found
                                                 </td>
+                                            </tr>
                                     @endif
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <div class="pagination fw-bold justify-content-center">
-                            {{ $Suppliers->links() }}
+                            <div class="pagination fw-bold justify-content-center">
+                                {{ $Projects->links() }}
+                            </div> 
                         </div>
                     </div>
-                    <!-- /.col -->
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
     </section>
 @endsection

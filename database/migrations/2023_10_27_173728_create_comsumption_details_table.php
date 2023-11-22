@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('comsumption_details', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('product_id');
-            $table->foreign('product_id')->references('id')->on('product_typesl');
+            $table->foreign('product_id')->references('id')->on('product_types');
             $table->string('serial_number');
             $table->enum('type', ['issued', 'returned']);
             $table->date('date');

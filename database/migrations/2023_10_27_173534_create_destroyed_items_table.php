@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreign('product_id')->references('id')->on('product_types');
             $table->unsignedBigInteger('create_by');
             $table->foreign('create_by')->references('id')->on('users');
-            $table->string('destroyed_by');
+            $table->unsignedBigInteger('destroyed_by');
+            $table->foreign('destroyed_by')->references('id')->on('users');
             $table->string('remarks')->nullable();
             $table->timestamps();
         });

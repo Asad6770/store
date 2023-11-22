@@ -32,9 +32,9 @@ Purchase
                                             @foreach ($Purchases as $Purchase)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td>{{ $Purchase->product_name }}</td>
-                                                    <td>{{ $Purchase->product_part_number }}</td>
-                                                    <td>{{ $Purchase->supplier_name }}</td>
+                                                    <td>{{ $Purchase->name }}</td>
+                                                    <td>{{ $Purchase->part_number }}</td>
+                                                    <td>{{ $Purchase->name }}</td>
                                                     <td>
                                                         <img class="rounded-circle"src="{{ url('/storage/files/' . $Purchase->photo) }}"
                                                             width="40" height="40" alt="{{ $Purchase->photo }}">
