@@ -16,4 +16,17 @@ class Purchase_item_detail extends Model
         'location',
         'remarks',
     ];
+
+    public function purchase()
+    {
+        return $this->belongsTo(Purchase::class, 'purchase_id', 'id');
+    }
+    public function project()
+    {
+        return $this->belongsTo(Project::class, 'project_id', 'id');
+    }
+    public function product_type()
+    {
+        return $this->belongsTo(Product_type::class, 'product_id', 'id');
+    }
 }

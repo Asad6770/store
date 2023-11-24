@@ -20,7 +20,7 @@ Purchase
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Product Name</th>
+                                            <th>Items Name</th>
                                             <th>Part Number</th>
                                             <th>Contractor</th>
                                             <th>Photo</th>
@@ -34,7 +34,7 @@ Purchase
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
                                                     <td>{{ $Purchase->name }}</td>
                                                     <td>{{ $Purchase->part_number }}</td>
-                                                    <td>{{ $Purchase->name }}</td>
+                                                    <td>{{ $Purchase->supplier->name }}</td>
                                                     <td>
                                                         <img class="rounded-circle"src="{{ url('/storage/files/' . $Purchase->photo) }}"
                                                             width="40" height="40" alt="{{ $Purchase->photo }}">

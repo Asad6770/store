@@ -49,7 +49,7 @@ class SupplierController extends Controller
             $Supplier->name = $request->name;
             $Supplier->number = $request->number;
             $Supplier->cnic = $request->cnic;
-            $Supplier->ddress = $request->address;
+            $Supplier->address = $request->address;
             $Supplier->email = $request->email;
             $Supplier->create_by = Auth::id();
             $Supplier->save();
@@ -99,7 +99,7 @@ class SupplierController extends Controller
         } else {
             $supplier->name = $request->name;
             $supplier->number = $request->number;
-            $supplier->nic = $request->cnic;
+            $supplier->cnic = $request->cnic;
             $supplier->address = $request->address;
             $supplier->email = $request->email;
             $supplier->create_by = Auth::id();

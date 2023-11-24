@@ -249,8 +249,8 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('supplier') }}"
-                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('product-consumption') }}"
+                            class="nav-link {{ 'product-consumption' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Product Consumption
@@ -258,11 +258,21 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('supplier') }}"
-                            class="nav-link {{ '#' == request()->path() ? 'active' : '' }}">
+                        <a href="{{ route('consumption-detail') }}"
+                            class="nav-link {{ 'consumption-detail' == request()->path() ? 'active' : '' }}">
                             <i class="nav-icon fas fa-tachometer-alt"></i>
                             <p>
                                 Consumption Detail
+                            </p>
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="{{ route('destroyed-item') }}"
+                            class="nav-link {{ 'destroyed-item' == request()->path() ? 'active' : '' }}">
+                            <i class="nav-icon fas fa-tachometer-alt"></i>
+                            <p>
+                                Destroyed Items
                             </p>
                         </a>
                     </li>

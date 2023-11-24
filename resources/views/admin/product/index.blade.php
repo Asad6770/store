@@ -20,7 +20,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Product Type</th>
+                                            <th>Items Type</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -41,9 +41,9 @@
                                                             class="text-white btn-danger btn btn-sm delete"><i
                                                                 class="nav-icon fas fa-trash"></i></a>
 
-                                                        {{-- <a href="{{ route('product.show', $type->id) }}"
+                                                        <a href="#"
                                                             class="text-white btn-success btn btn-sm"><i
-                                                                class="nav-icon fas fa-eye"></i></a> --}}
+                                                                class="nav-icon fas fa-eye"></i></a>
                                                     </td>
                                                 </tr>
                                             @endforeach

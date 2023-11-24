@@ -15,11 +15,7 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        // $Project = DB::table('projects')
-        //     ->join('project_categories', 'projects.category_id', '=', 'project_categories.id')
-        //     ->select('projects.*', 'project_categories.name')
-        //     ->paginate(10);
-        $Project = Project::Paginate(10);
+        $Project = Project::with('project_category')->paginate(10);
         return view('admin.project.index', ['Projects' => $Project]);
     }
 

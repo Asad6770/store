@@ -20,8 +20,8 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Product Name</th>
-                                            <th>Purchase</th>
+                                            <th>Item Type</th>
+                                            <th>Purchase Item</th>
                                             <th>Project Name</th>
                                             <th>Serial No</th>
                                             <th>Location</th>
@@ -34,9 +34,9 @@
                                             @foreach ($Purchase_items as $Purchase_item)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td>{{ $Purchase_item->product_id }}</td>
-                                                    <td>{{ $Purchase_item->purchase_id }}</td>
-                                                    <td>{{ $Purchase_item->project_id }}</td>
+                                                    <td>{{ $Purchase_item->product_type->name }}</td>
+                                                    <td>{{ $Purchase_item->purchase->name }}</td>
+                                                    <td>{{ $Purchase_item->project->name }}</td>
                                                     <td>{{ $Purchase_item->serial_number }}</td>
                                                     <td>{{ $Purchase_item->location }}</td>
                                                     <td>{{ $Purchase_item->remarks }}</td>

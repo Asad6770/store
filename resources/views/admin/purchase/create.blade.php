@@ -2,7 +2,7 @@
     enctype="multipart/form-data">
     @csrf
     <div class="col-md-6  col-lg-6">
-        <label for="name" class="form-label fw-bold">Product Name</label>
+        <label for="name" class="form-label fw-bold">Item Name</label>
         <input type="text" class="form-control" id="name" name="name">
         <span class="text-danger name_error error text-bold" style="font-size: 13px;"></span>
     </div>
@@ -14,7 +14,7 @@
     </div>
     <div class="col-md-12 col-lg-12 search_select_box form-group">
         <label for="supplier_id" class="form-label fw-bold">Supplier Name</label>
-        <select class="form-control" name="supplier_id" id="supplier_id" data-live-search="true">
+        <select class="form-control custom-select" name="supplier_id" id="supplier_id" data-live-search="true">
             <option>Select</option>
             @foreach ($suppliers as $supplier)
                 <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>

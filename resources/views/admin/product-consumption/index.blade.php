@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Project
+    Purchase Consumption
 @endsection
 @section('content')
     <section class="content">
@@ -9,10 +9,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <button href="{{ route('project.create') }}" type="button"
+                            <button href="{{ route('product-consumption.create') }}" type="button"
                                 class="btn btn-success modal-load" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus"></i>
-                                Add Purchase
+                                Add Purchase Items
                             </button>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -20,25 +20,31 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Project Name</th>
-                                            <th>Category Name</th>
+                                            <th>User Name</th>
+                                            <th>Date</th>
+                                            <th>Remarks</th>
+                                            <th>Create By</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                     @if (count($Projects) > 0)
+                                    @if (count($Product_consumptions) > 0)
                                         <tbody>
-                                            @foreach ($Projects as $Project)
+                                            @foreach ($Product_consumptions as $Product_consumption)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td>{{ $Project->name }}</td>
-                                                    <td>{{ $Project->project_category->name }}</td>
+                                                    <td>{{ $Product_consumption->user->name}}</td>
+                                                    <td>{{ $Product_consumption->date }}</td>
+                                                    <td>{{ $Product_consumption->remarks }}</td>
+                                                    <td>{{ $Product_consumption->created_by->name }}</td>
+                                                
+
                                                     <td>
-                                                        <a href="{{ route('project.edit', $Project->id) }}"
+                                                        <a href="{{ route('product-consumption.edit', $Product_consumption->id) }}"
                                                             class="text-white btn-info btn btn-sm modal-load"
                                                             data-toggle="modal" data-target="#exampleModal"><i
                                                                 class="nav-icon fas fa-edit"></i></a>
 
-                                                        <a href="{{ route('project.delete', $Project->id) }}"
+                                                        <a href="{{ route('product-consumption.delete', $Product_consumption->id) }}"
                                                             class="text-white btn-danger btn btn-sm delete"><i
                                                                 class="nav-icon fas fa-trash"></i></a>
 
@@ -59,8 +65,8 @@
                                 </table>
                             </div>
                             <div class="pagination fw-bold justify-content-center">
-                                {{ $Projects->links() }}
-                            </div> 
+                                {{ $Product_consumptions->links() }}
+                            </div>
                         </div>
                     </div>
                 </div>

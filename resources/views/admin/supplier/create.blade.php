@@ -24,8 +24,8 @@
 
     <div class="col-md-12 col-lg-12">
         <label for="address" class="form-label fw-bold">Address</label>
-        <input type="text" class="form-control" id="address" name="supplier_address" placeholder="Write Home Address...">
-        <span class="text-danger supplier_address_error error text-bold" style="font-size: 13px;"></span>
+        <input type="text" class="form-control" id="address" name="address" placeholder="Write Home Address...">
+        <span class="text-danger address_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <br>
     <div class="modal-footer">

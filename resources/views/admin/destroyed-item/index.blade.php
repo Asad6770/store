@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-    Project
+    Destroyed Items
 @endsection
 @section('content')
     <section class="content">
@@ -9,10 +9,10 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <button href="{{ route('project.create') }}" type="button"
+                            <button href="{{ route('destroyed-item.create') }}" type="button"
                                 class="btn btn-success modal-load" data-toggle="modal" data-target="#exampleModal">
                                 <i class="fas fa-plus"></i>
-                                Add Purchase
+                                Add Destroyed
                             </button>
                             <!-- /.card-header -->
                             <div class="card-body">
@@ -20,25 +20,35 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Project Name</th>
-                                            <th>Category Name</th>
+                                            <th>Product Type</th>
+                                            <th>Item Name</th>
+                                            <th>Issued Type</th>
+                                            <th>Serial No</th>
+                                            <th>Date</th>
+                                            <th>Remarks</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                     @if (count($Projects) > 0)
+                                    {{-- @if (count($comsumption_details) > 0)
                                         <tbody>
-                                            @foreach ($Projects as $Project)
+                                            @foreach ($comsumption_details as $comsumption_detail)
                                                 <tr>
                                                     <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td>{{ $Project->name }}</td>
-                                                    <td>{{ $Project->project_category->name }}</td>
+                                                    <td>{{ $comsumption_detail->product_type->name}}</td>
+                                                    <td>{{ $comsumption_detail->purchase->name }}</td>
+                                                    <td>{{ $comsumption_detail->type }}</td>
+                                                    <td>{{ $comsumption_detail->serial_number }}</td>
+                                                    <td>{{ $comsumption_detail->date }}</td>
+                                                    <td>{{ $comsumption_detail->remarks }}</td>
+                                                
+
                                                     <td>
-                                                        <a href="{{ route('project.edit', $Project->id) }}"
+                                                        <a href="{{ route('destroyed-item.edit', $comsumption_detail->id) }}"
                                                             class="text-white btn-info btn btn-sm modal-load"
                                                             data-toggle="modal" data-target="#exampleModal"><i
                                                                 class="nav-icon fas fa-edit"></i></a>
 
-                                                        <a href="{{ route('project.delete', $Project->id) }}"
+                                                        <a href="{{ route('destroyed-item.delete', $comsumption_detail->id) }}"
                                                             class="text-white btn-danger btn btn-sm delete"><i
                                                                 class="nav-icon fas fa-trash"></i></a>
 
@@ -54,13 +64,13 @@
                                                     No Record Found
                                                 </td>
                                             </tr>
-                                    @endif
+                                    @endif --}}
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="pagination fw-bold justify-content-center">
-                                {{ $Projects->links() }}
-                            </div> 
+                            {{-- <div class="pagination fw-bold justify-content-center">
+                                {{ $comsumption_details->links() }}
+                            </div> --}}
                         </div>
                     </div>
                 </div>

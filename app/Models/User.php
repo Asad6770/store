@@ -51,4 +51,9 @@ class User extends Authenticatable
             get: fn ($value) =>  ["user", "admin", "superadmin"][$value],
         );
     }
+
+    public function productConsumptions()
+    {
+        return $this->hasMany(ProductConsumption::class);
+    }
 }

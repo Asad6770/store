@@ -3,13 +3,13 @@
     @csrf
     @method('PUT')
     <div class="col-md-12  col-lg-12">
-        <label for="name" class="form-label fw-bold">Product Name</label>
+        <label for="name" class="form-label fw-bold">Project Name</label>
         <input type="text" class="form-control" id="name" name="name" value="{{ $Projects->name }}">
         <span class="text-danger name_error error text-bold" style="font-size: 13px;"></span>
     </div>
 
     <div class="col-md-12 col-lg-12 search_select_box form-group">
-        <label for="category_id" class="form-label fw-bold">Supplier Name</label>
+        <label for="category_id" class="form-label fw-bold">Category Name</label>
         <select class="form-control" name="category_id" id="category_id" data-live-search="true">
             <option>Select</option>
             @foreach ($categories as $category)

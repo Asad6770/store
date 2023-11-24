@@ -12,7 +12,7 @@ class DestroyedItemController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.destroyed-item.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class DestroyedItemController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.destroyed-item.create');
     }
 
     /**

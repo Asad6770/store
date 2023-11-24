@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('product_id');
             $table->foreign('product_id')->references('id')->on('product_types');
+            $table->unsignedBigInteger('purchase_id');
+            $table->foreign('purchase_id')->references('id')->on('purchases');
             $table->string('serial_number');
             $table->enum('type', ['issued', 'returned']);
             $table->date('date');

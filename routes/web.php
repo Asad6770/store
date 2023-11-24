@@ -9,6 +9,9 @@ use App\Http\Controllers\ProjectCategoryController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ProductTypeController;
 use App\Http\Controllers\PurchaseItemDetailController;
+use App\Http\Controllers\ProductConsumptionController;
+use App\Http\Controllers\ComsumptionDetailController;
+use App\Http\Controllers\DestroyedItemController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,6 +89,31 @@ Route::middleware(['auth', 'Useraccess:admin'])->group(function () {
     Route::get('product/edit/{id}', [ProductTypeController::class, 'edit'])->name('product.edit');
     Route::put('product/update/{id}', [ProductTypeController::class, 'update'])->name('product.update');
     Route::post('product/delete/{id}', [ProductTypeController::class, 'destroy'])->name('product.delete');
+
+    //product consumption Routes List
+    Route::get('product-consumption', [ProductConsumptionController::class, 'index'])->name('product-consumption');
+    Route::get('product-consumption/create', [ProductConsumptionController::class, 'create'])->name('product-consumption.create');
+    Route::post('product-consumption/create', [ProductConsumptionController::class, 'store'])->name('product-consumption.store');
+    Route::get('product-consumption/edit/{id}', [ProductConsumptionController::class, 'edit'])->name('product-consumption.edit');
+    Route::put('product-consumption/update/{id}', [ProductConsumptionController::class, 'update'])->name('product-consumption.update');
+    Route::post('product-consumption/delete/{id}', [ProductConsumptionController::class, 'destroy'])->name('product-consumption.delete');
+
+    //consumption detail Routes List
+    Route::get('consumption-detail', [ComsumptionDetailController::class, 'index'])->name('consumption-detail');
+    Route::get('consumption-detail/create', [ComsumptionDetailController::class, 'create'])->name('consumption-detail.create');
+    Route::post('consumption-detail/create', [ComsumptionDetailController::class, 'store'])->name('consumption-detail.store');
+    Route::get('consumption-detail/edit/{id}', [ComsumptionDetailController::class, 'edit'])->name('consumption-detail.edit');
+    Route::put('consumption-detail/update/{id}', [ComsumptionDetailController::class, 'update'])->name('consumption-detail.update');
+    Route::post('consumption-detail/delete/{id}', [ComsumptionDetailController::class, 'destroy'])->name('consumption-detail.delete');
+
+
+     //destroyed-item Routes List
+     Route::get('destroyed-item', [DestroyedItemController::class, 'index'])->name('destroyed-item');
+     Route::get('destroyed-item/create', [DestroyedItemController::class, 'create'])->name('destroyed-item.create');
+     Route::post('destroyed-item/create', [DestroyedItemController::class, 'store'])->name('destroyed-item.store');
+     Route::get('destroyed-item/edit/{id}', [DestroyedItemController::class, 'edit'])->name('destroyed-item.edit');
+     Route::put('destroyed-item/update/{id}', [DestroyedItemController::class, 'update'])->name('destroyed-item.update');
+     Route::post('destroyed-item/delete/{id}', [DestroyedItemController::class, 'destroy'])->name('destroyed-item.delete');
 });
 
 //Admin Routes List

@@ -3,7 +3,7 @@
     @csrf
     @method('PUT')
     <div class="col-md-12  col-lg-12">
-        <label for="name" class="form-label fw-bold">Product Type</label>
+        <label for="name" class="form-label fw-bold">Item Type</label>
         <input type="text" class="form-control" id="name" name="name" value="{{ $type->name }}">
         <span class="text-danger name_error error text-bold" style="font-size: 13px;"></span>
     </div>

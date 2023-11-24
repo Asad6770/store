@@ -6,7 +6,6 @@ use App\Models\Purchase;
 use Illuminate\Http\Request;
 use App\Models\Supplier;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Support\Facades\DB;
 
 class PurchaseController extends Controller
 {
@@ -15,10 +14,7 @@ class PurchaseController extends Controller
      */
     public function index()
     {
-        $Purchase = DB::table('purchases')
-            ->join('suppliers', 'purchases.supplier_id', '=', 'suppliers.id')
-            ->select('purchases.*', 'suppliers.name')
-            ->paginate(10);
+        $Purchase = Purchase::with('supplier')->paginate(10);
         return view('admin.purchase.index', ['Purchases'=> $Purchase]);
     }
 
