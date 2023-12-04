@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 @section('title')
-Contactor
+    Contactor
 @endsection
 @section('content')
     <section class="content">
@@ -14,63 +14,47 @@ Contactor
                                 <i class="fas fa-plus"></i>
                                 Add Contactor
                             </button>
+                            <hr>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="myTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
+                                            {{--  <th>ID</th>  --}}
                                             <th>Full Name</th>
                                             <th>Mobile Number</th>
                                             <th>CNIC</th>
                                             <th>E-mail</th>
                                             <th>Address</th>
-                                            <th scope="col" colspan="2">Action</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @if (count($Suppliers) > 0)
-                                        <tbody>
-                                            @foreach ($Suppliers as $supplier)
-                                                <tr>
-                                                    <th scope="row">{{ $loop->index + 1 }}</th>
-                                                    <td>{{ $supplier->name }}</td>
-                                                    <td>{{ $supplier->number }}</td>
-                                                    <td>{{ $supplier->cnic }}</td>
-                                                    <td>{{ $supplier->email }}</td>
-                                                    <td>{{ $supplier->address }}</td>
-                                                    <td>
-                                                        <a href="{{ route('edit', $supplier->id) }}"
-                                                            class="text-white btn-info btn btn-sm modal-load"
-                                                            data-toggle="modal" data-target="#exampleModal"><i
-                                                                class="nav-icon fas fa-edit"></i></a>
-                                                    </td>
-                                                    <td>
-                                                        <a href="{{ route('delete', $supplier->id) }}"
-                                                            class="text-white btn-danger btn btn-sm delete"><i
-                                                                class="nav-icon fas fa-trash"></i></a>
-                                                    </td>
-                                                </tr>
-                                            @endforeach
-
+                                    <tbody>
+                                        @foreach ($Suppliers as $supplier)
                                             <tr>
-                                            @else
-                                                <td class="text-danger text-center fs-5 fw-bold" colspan="8">
-                                                    No Record Found
+                                                {{--  <td>{{ $loop->index + 1 }}</td>  --}}
+                                                <td>{{ $supplier->name }}</td>
+                                                <td>{{ $supplier->number }}</td>
+                                                <td>{{ $supplier->cnic }}</td>
+                                                <td>{{ $supplier->email }}</td>
+                                                <td>{{ $supplier->address }}</td>
+                                                <td>
+                                                    <a href="{{ route('edit', $supplier->id) }}"
+                                                        class="text-white btn-info btn btn-sm modal-load"
+                                                        data-toggle="modal" data-target="#exampleModal"><i
+                                                            class="nav-icon fas fa-edit"></i></a>
+                                                    <a href="{{ route('delete', $supplier->id) }}"
+                                                        class="text-white btn-danger btn btn-sm delete"><i
+                                                            class="nav-icon fas fa-trash"></i></a>
                                                 </td>
-                                    @endif
+                                            </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                            <!-- /.card-body -->
-                        </div>
-                        <div class="pagination fw-bold justify-content-center">
-                            {{ $Suppliers->links() }}
                         </div>
                     </div>
-                    <!-- /.col -->
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
     </section>
 @endsection

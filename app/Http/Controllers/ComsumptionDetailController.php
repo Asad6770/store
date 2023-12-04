@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Purchase;
 use App\Models\Product_type;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Purchase_item_detail;
 
 class ComsumptionDetailController extends Controller
 {
@@ -34,6 +35,7 @@ class ComsumptionDetailController extends Controller
      */
     public function store(Request $request)
     {
+       
         $validator = Validator::make($request->all(), [
             'product_id' => 'required',
             'purchase_id' => 'required',
@@ -52,9 +54,17 @@ class ComsumptionDetailController extends Controller
             $Comsumption_detail->product_id = $request->product_id;
             $Comsumption_detail->purchase_id = $request->purchase_id;
             $Comsumption_detail->type = $request->type;
-           $Comsumption_detail->serial_number = $request->serial_number;
+            
             $Comsumption_detail->date = $request->date;
             $Comsumption_detail->remarks = $request->remarks;
+            if (Purchase_item_detail::where('serial_number', $request->serial_number)->exists()) {
+                $Comsumption_detail->serial_number = $request->serial_number;
+            } else {
+                return response()->json([
+                    'status' => 200,
+                    'success' => 'Serial Number not Available in Database!',
+                ]);
+            }
             $Comsumption_detail->save();
             return response()->json([
                 'status' => 200,

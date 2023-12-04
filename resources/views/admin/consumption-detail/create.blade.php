@@ -4,31 +4,31 @@
     <div class="col-md-12 col-lg-12 search_select_box form-group">
         <label for="product_id" class="form-label fw-bold">Item Type</label>
         <select class="form-control custom-select" name="product_id" id="product_id" data-live-search="true">
-            <option>Select</option>
+            <option value="" selected >Select Item Type</option>
             @foreach ($products as $product)
                 <option value="{{ $product->id }}">{{ $product->name }}</option>
             @endforeach
         </select>
-        <span class="text-danger product_id_error error text-bold" style="font-size: 13px;"></span>
+        <span class="text-danger product_id_error error" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-12 col-lg-12 search_select_box form-group">
         <label for="purchase_id" class="form-label fw-bold">Item Name</label>
         <select class="form-control custom-select" name="purchase_id" id="purchase_id" data-live-search="true">
-            <option>Select</option>
+            <option class="custom-select" value="" selected >Select Item Name</option>
             @foreach ($purchases as $purchase)
                 <option value="{{ $purchase->id }}">{{ $purchase->name }}</option>
             @endforeach
         </select>
-        <span class="text-danger purchase_id_error error text-bold" style="font-size: 13px;"></span>
+        <span class="text-danger purchase_id_error" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-12 col-lg-12 search_select_box form-group">
         <label for="type" class="form-label fw-bold">Issued Type</label>
         <select class="form-control custom-select" name="type" id="type" data-live-search="true">
-            <option>Select</option>
+            <option value="" selected >Select Issue Type</option>
             <option value="issued">Issued</option>
             <option value="returned">Returned</option>
         </select>
-        <span class="text-danger purchase_id_error error text-bold" style="font-size: 13px;"></span>
+        <span class="text-danger purchase_id_error error" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-12  col-lg-12">
         <label for="serial_number" class="form-label fw-bold">Serial No</label>

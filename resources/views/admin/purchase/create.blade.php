@@ -8,14 +8,13 @@
     </div>
     <div class="col-md-6 col-lg-6">
         <label for="part_number" class="form-label fw-bold">Part Number</label>
-        <input type="text" class="form-control" id="part_number" name="part_number"
-            placeholder="0300-0000100">
+        <input type="text" class="form-control" id="part_number" name="part_number">
         <span class="text-danger part_number_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-12 col-lg-12 search_select_box form-group">
-        <label for="supplier_id" class="form-label fw-bold">Supplier Name</label>
+        <label for="supplier_id" class="form-label fw-bold">Contractor Name</label>
         <select class="form-control custom-select" name="supplier_id" id="supplier_id" data-live-search="true">
-            <option>Select</option>
+            <option value="" selected >Select Contractor</option>
             @foreach ($suppliers as $supplier)
                 <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
             @endforeach

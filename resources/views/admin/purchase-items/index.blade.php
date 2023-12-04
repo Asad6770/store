@@ -14,12 +14,11 @@
                                 <i class="fas fa-plus"></i>
                                 Add Purchase Items
                             </button>
-                            <!-- /.card-header -->
+                            <hr>
                             <div class="card-body">
-                                <table id="example1" class="table table-bordered table-striped">
+                                <table id="myTable">
                                     <thead>
                                         <tr>
-                                            <th>#</th>
                                             <th>Item Type</th>
                                             <th>Purchase Item</th>
                                             <th>Project Name</th>
@@ -29,11 +28,9 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    @if (count($Purchase_items) > 0)
                                         <tbody>
                                             @foreach ($Purchase_items as $Purchase_item)
                                                 <tr>
-                                                    <th scope="row">{{ $loop->index + 1 }}</th>
                                                     <td>{{ $Purchase_item->product_type->name }}</td>
                                                     <td>{{ $Purchase_item->purchase->name }}</td>
                                                     <td>{{ $Purchase_item->project->name }}</td>
@@ -57,18 +54,8 @@
                                                     </td>
                                                 </tr>
                                             @endforeach
-                                            <tr>
-                                            @else
-                                                <td class="text-danger text-center fs-5 fw-bold" colspan="8">
-                                                    No Record Found
-                                                </td>
-                                            </tr>
-                                    @endif
                                     </tbody>
                                 </table>
-                            </div>
-                            <div class="pagination fw-bold justify-content-center">
-                                {{ $Purchase_items->links() }}
                             </div>
                         </div>
                     </div>

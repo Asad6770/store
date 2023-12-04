@@ -7,24 +7,24 @@
     </div>
     <div class="col-md-6 col-lg-6">
         <label for="number" class="form-label fw-bold" >Phone Number</label>
-        <input type="text" class="form-control" id="umber" name="number" placeholder="0300-0000100">
+        <input type="text" class="form-control" id="umber" name="number">
         <span class="text-danger number_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <div class="col-md-6 col-lg-6">
         <label for="cnic" class="form-label fw-bold" >CNIC</label>
-        <input type="text" class="form-control" id="cnic" name="cnic" placeholder="31101-1111100-1">
+        <input type="text" class="form-control" id="cnic" name="cnic">
         <span class="text-danger cnic_error error text-bold" style="font-size: 13px;"></span>
     </div>
 
     <div class="col-md-6 col-lg-6">
         <label for="email" class="form-label fw-bold" >E-mail</label>
-        <input type="text" class="form-control" id="email" name="email" placeholder="admin@gmail.com">
+        <input type="text" class="form-control" id="email" name="email">
         <span class="text-danger mail_error error text-bold" style="font-size: 13px;"></span>
     </div>
 
     <div class="col-md-12 col-lg-12">
         <label for="address" class="form-label fw-bold">Address</label>
-        <input type="text" class="form-control" id="address" name="address" placeholder="Write Home Address...">
+        <input type="text" class="form-control" id="address" name="address">
         <span class="text-danger address_error error text-bold" style="font-size: 13px;"></span>
     </div>
     <br>
